@@ -1,12 +1,24 @@
 #!/usr/bin/env bash
 
+# check if all tools are installed correctly
+for FILE in osmconvert/osmconvert \
+  mkgmap/splitter.jar \
+  mkgmap/mkgmap.jar \
+  mkgmap/lib/fastutil-6.5.15-mkg.1b.jar \
+  mkgmap/lib/osmpbf-1.3.3.jar; do
+    if ! test -f "${FILE}"; then
+      echo "${FILE} does not exist."
+      exit
+    fi
+done
+
 # change to existing working directory
 cd mkgmap/
 
 #
 ## download and process map (Germany)
 
-until test -e gmapsupp.img; do
+until test -f gmapsupp.img; do
 
   # clean up working directory
   rm -vf densities-out.txt areas.* template.args problems.list 6324*.o5m 6324*.img ovm_6324*.img osmmap.*
