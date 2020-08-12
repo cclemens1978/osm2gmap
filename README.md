@@ -1,6 +1,6 @@
 # osm2gmap
 
-*osm2gmap*: This script downloads the current database extract of Germany from the servers of the OpenStreetMap project. Calling the programs *osmconvert* and *mkgmap*, it then converts the data into Garmin's internal map format for use with compatible navigational devices. The procedure repeats until the map *gmapsupp.img* has been successfully generated.
+*osm2gmap*: This script downloads a current database extract of the OpenStreetMap project from the servers of the Geofabrik GmbH. Here, Germany is set as default. Calling the programs *osmconvert* and *mkgmap*, it then converts the data into Garmin's internal map format for use with compatible navigational devices. The procedure repeats until the map *gmapsupp.img* has been successfully generated.
 
 ## Installation
 
@@ -10,6 +10,8 @@ If downloading of *splitter* and/or *mkgmap* fails, check the website for a curr
 
 ``` bash
 sudo aptitude install git
+sudo aptitude install gcc zlib1g-dev
+
 git clone https://github.com/cclemens1978/osm2gmap.git
 
 mkdir --parents osmconvert/ mkgmap/lib/
@@ -24,10 +26,10 @@ cd ../mkgmap/
 wget https://www.mkgmap.org.uk/download/splitter-r597.tar.gz
 tar -zxf splitter-r597.tar.gz splitter-r597/splitter.jar --strip-components=1
 
-wget https://www.mkgmap.org.uk/download/mkgmap-r4550.tar.gz
-tar -zxf mkgmap-r4550.tar.gz mkgmap-r4550/mkgmap.jar --strip-components=1
-tar -zxf mkgmap-r4550.tar.gz mkgmap-r4550/lib/fastutil-6.5.15-mkg.1b.jar --strip-components=1
-tar -zxf mkgmap-r4550.tar.gz mkgmap-r4550/lib/osmpbf-1.3.3.jar --strip-components=1
+wget https://www.mkgmap.org.uk/download/mkgmap-r4565.tar.gz
+tar -zxf mkgmap-r4565.tar.gz mkgmap-r4565/mkgmap.jar --strip-components=1
+tar -zxf mkgmap-r4565.tar.gz mkgmap-r4565/lib/fastutil-6.5.15-mkg.1b.jar --strip-components=1
+tar -zxf mkgmap-r4565.tar.gz mkgmap-r4565/lib/osmpbf-1.3.3.jar --strip-components=1
 ```
 
 ## Usage
